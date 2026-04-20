@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelStudio R.S. | Innovación y Rendimiento</title>
+    <style>
+        :root { 
+            --cian: #00d4ff; 
+            --oscuro: #050505; 
+            --gris: #121212; 
+            --azul-glow: rgba(0, 212, 255, 0.3); 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        body { 
+            background: var(--oscuro); 
+            color: white; 
+            scroll-behavior: smooth; 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+        }
+        
+        /* Navegación */
+        nav { 
+            position: fixed; 
+            width: 100%; 
+            background: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(10px); 
+            padding: 15px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            z-index: 1000; 
+            border-bottom: 1px solid #333; 
+        }
+
+        .logo { color: var(--cian); font-weight: bold; font-size: 1.6rem; letter-spacing: 2px; }
+        
+        nav div a { 
+            color: white; 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            transition: 0.3s; 
+            text-transform: uppercase;
+        }
+
+        nav div a:hover { color: var(--cian); text-shadow: 0 0 10px var(--cian); }
+
+        /* Secciones */
+        section { 
+            min-height: 100vh; 
+            padding: 120px 10%; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            border-bottom: 1px solid #222; 
+        }
+
+        h2 { color: var(--cian); font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; text-align: center; }
+        
+        .subtitulo { text-align: center; color: #888; margin-bottom: 50px; font-size: 1.1rem; }
+
+        /* --- NUEVO: Cuadro de Presentación (Resumen) --- */
+        .presentacion-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: left;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .presentacion-box h3 {
+            color: var(--cian);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--cian);
+            padding-left: 15px;
+        }
+
+        .presentacion-box p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .caracteristicas {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--cian);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid var(--cian);
+        }
+        
+        /* Grid y Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        
+        .card { 
+            background: var(--gris); 
+            border-radius: 20px; 
+            border: 1px solid #222; 
+            transition: 0.4s; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        .card:hover { 
+            border-color: var(--cian); 
+            transform: translateY(-10px); 
+            box-shadow: 0 10px 30px var(--azul-glow); 
+        }
+
+        .card-body { padding: 30px; flex-grow: 1; }
+        .card h3 { color: var(--cian); margin-bottom: 10px; font-size: 1.4rem; }
+        .card-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #333; }
+
+        /* INICIO (Fondo Hero) */
+        #inicio { 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)), 
+                        url('images/fondo-hero.jpg') no-repeat center center/cover;
+            text-align: center; 
+        }
+        
+        .status-bar { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 15px; 
+            background: rgba(0,0,0,0.5); 
+            padding: 10px 25px; 
+            border-radius: 50px; 
+            border: 1px solid #444; 
+            margin-bottom: 20px;
+        }
+
+        .dot { height: 10px; width: 10px; background: #0f0; border-radius: 50%; box-shadow: 0 0 10px #0f0; }
+
+        /* NOSOTROS */
+        .nosotros-container { display: flex; gap: 50px; align-items: center; background: var(--gris); padding: 50px; border-radius: 30px; border: 1px solid #222; }
+        .nosotros-img { width: 40%; border-radius: 20px; border: 2px solid var(--cian); }
+        .nosotros-text { width: 60%; font-size: 1.2rem; color: #ccc; }
+
+        footer { padding: 30px; text-align: center; color: #444; font-size: 0.8rem; background: #000; }
+
+        @media (max-width: 768px) {
+            .nosotros-container { flex-direction: column; text-align: center; }
+            .nosotros-img, .nosotros-text { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PIXELSTUDIO</div>
+        <div>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#tecnologia">Tecnología</a>
+            <a href="#infraestructura">Estado</a>
+        </div>
+    </nav>
+
+    <section id="inicio">
+        <div class="status-bar">
+            <span class="dot"></span> <span>INFRAESTRUCTURA OPERATIVA 100%</span>
+        </div>
+        <h1 style="font-size: 4.5rem; margin-bottom: 5px; line-height: 1;">PixelStudio <span style="color:var(--cian)">R.S.</span></h1>
+        
+        <div class="presentacion-box">
+            <h3>Nuestra Misión</h3>
+            <p>
+                Somos un laboratorio creativo de vanguardia especializado en la producción de contenido digital de alta fidelidad. 
+                En <strong>PixelStudio R.S.</strong>, fusionamos el arte visual con la potencia técnica más avanzada del mercado para ofrecer soluciones integrales en diseño y postproducción.
+            </p>
+            <p>
+                Desde la creación de identidades corporativas hasta el renderizado de complejos entornos 3D, nuestra infraestructura está diseñada para eliminar los cuellos de botella y maximizar la creatividad.
+            </p>
+            <div class="caracteristicas">
+                <span class="tag">EDICIÓN 4K</span>
+                <span class="tag">RENDER 3D</span>
+                <span class="tag">BRANDING</span>
+                <span class="tag">ALTA DISPONIBILIDAD</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <h2>Nuestra Esencia</h2>
+        <p class="subtitulo">Redefiniendo los límites de la postproducción digital </p>
+        <div class="nosotros-container">
+            <img src="images/nosotros.jpg" alt="Estación Creativa" class="nosotros-img">
+            <div class="nosotros-text">
+                <p>
+                    <strong>PixelStudio R.S.</strong> somos una agencia de servicios técnicos avanzados. Nos especializamos en proporcionar la infraestructura necesaria para la <strong>postproducción de cine 4K, renderizado 3D complejo y simulaciones físicas</strong> que requieren potencia de cálculo extrema.
+                    <br><br>
+                    Eliminamos los cuellos de botella técnicos para que los artistas solo se preocupen de crear. Los datos están protegidos bajo los más estrictos estándares de seguridad.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tecnologia">
+        <h2>Tecnología Punta</h2>
+        <p class="subtitulo">El hardware y software que hace posible lo imposible </p>
+        <div class="grid">
+            <div class="card">
+                <img src="images/hardware.jpg" alt="Hardware" class="card-img">
+                <div class="card-body">
+                    <h3>Estaciones de Render</h3>
+                    <p>Equipadas con CPUs <strong>AMD Ryzen 9000</strong> y gráficas <strong>NVIDIA RTX 4080 Super</strong>.</p>
+                </div>
+            </div>
+            <div class="card">
+               <img src="images/automatizacion.jpg" alt="IA" class="card-img">
+                <div class="card-body">
+                    <h3>IA & Automatización</h3>
+                    <p>Flujos de trabajo inteligentes mediante <strong>n8n</strong> y la IA de <strong>Gemini</strong>.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/cisco.jpg" alt="Cisco" class="card-img">
+                <div class="card-body">
+                    <h3>Redes 10Gbps</h3>
+                    <p>Infraestructura gestionada por switches <strong>Cisco Catalyst</strong> y cableado Cat 6A.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="infraestructura" style="background: radial-gradient(circle at bottom, #0a0a0a 0%, #050505 100%);">
+        <h2>Panel de Control Local</h2>
+        <p class="subtitulo">Estado operativo de los servicios de red configurados </p>
+        <div class="grid">
+            
+            <div class="card" style="padding: 30px; border-top: 4px solid #0f0;">
+                <h3 style="color: #0f0; margin-bottom: 10px;">🟢 Servidor ADDS</h3>
+                <p style="color: #888; margin-bottom: 10px;">Dominio: <strong>pixelstudio.local</strong></p>
+                <p>GPOs de seguridad y gestión de usuarios activas mediante Active Directory para todos los departamentos.</p>
+            </div>
+
+            <div class="card" style="padding: 30px; border-top: 4px solid #0f0;">
+                <h3 style="color: #0f0; margin-bottom: 10px;">💾 Almacenamiento</h3>
+                <p style="color: #888; margin-bottom: 10px;">Protocolos: SFTP / NAS</p>
+                <p>Configuración de <strong>RAID 1 (Mirroring)</strong> y cuotas de disco para protección de datos críticos.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 PixelStudio R.S. - Proyecto Intermodular Raúl Sánchez-Pantoja 
+    </footer>
+
+</body>
+</html>
